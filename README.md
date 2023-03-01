@@ -11,3 +11,6 @@ cmake .. -DAMReX_SPACEDIM=2
 make -j
 ./main inputs
 ```
+
+added `Py` direcory to start playing around with making pybind11 wrappers w/ CMake.
+    * build with `cmake .. -DPYTHON_EXECUTABLE=$(which python)`

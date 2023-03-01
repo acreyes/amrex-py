@@ -1,7 +1,7 @@
 [submodule "extern/pybind11"]
-	path = extern/pybind11
+	path = Py/extern/pybind11
 	url = ../../pybind/pybind11
 	branch = stable
 [submodule "extern/amrex"]
-	path = extern/amrex
+	path = Py/extern/amrex
 	url = https://github.com/AMReX-Codes/amrex.git
