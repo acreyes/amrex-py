@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.25)
 project(amrex-py)
 
-add_subdirectory(extern/amrex)
-# add_subdirectory(extern/pybind11)
+add_subdirectory(Py/extern/amrex)
+# add_subdirectory(Py/extern/pybind11)
 
 # make list of source files
 set(_sources AdvancePhiAllLevels.cpp  AdvancePhiAtLevel.cpp  AmrCoreAdv.cpp  AmrCoreAdv.H bc_fill.H)
