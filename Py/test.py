@@ -6,3 +6,5 @@ class test(Units):
 
 t = test()
 t.Init()
+b = Units()
+b.Init()

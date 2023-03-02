@@ -7,7 +7,8 @@ add_subdirectory(extern/pybind11)
 # find_package(pybind11)
 
 # make list of source files
-pybind11_add_module(Units Units.cpp)
+pybind11_add_module(Units pyUnits.cpp)
+add_custom_target(__init__.py ALL COMMAND ${CMAKE_COMMAND} -E touch __init__.py)
 # pybind11_add_module(example example.cpp)
 # set(_sources AdvancePhiAllLevels.cpp  AdvancePhiAtLevel.cpp  AmrCoreAdv.cpp  AmrCoreAdv.H bc_fill.H)
 # list(APPEND _sources DefineVelocity.cpp  face_velocity.H  Kernels.H  main.cpp  Tagging.H)
