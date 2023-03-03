@@ -13,6 +13,7 @@ PYBIND11_MODULE(AmrCoreAdv,m)
     m.doc() = "Binds AmrCoreAdv class methods used explicitly in main.cpp";
 
     py::class_<AmrCoreAdv>(m,"AmrCoreAdv")
+        .def(py::init<>())
         .def("Evolve"  , &AmrCoreAdv::Evolve)
         .def("InitData", &AmrCoreAdv::InitData);
 }
