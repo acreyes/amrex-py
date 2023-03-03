@@ -53,7 +53,9 @@ amrex::AMReX* amrInitialize(py::object pyargv11) {
 // call the Initialize function with the proper types
 //c++ only seems to be happy if it's passed something declared as char**...
     dargv = argv.get();
-    return amrex::Initialize(argc, dargv);
+    amrex::AMReX* out_ptr = amrex::Initialize(argc, dargv);
+    BL_PROFILE("main()");
+    return out_ptr;
     // return amrex::Initialize(1,"inputs\0");
 }
 
@@ -67,15 +69,13 @@ PYBIND11_MODULE(pyAmrex, m)
     m.doc() = "Bindings for amrex initialization/finalize";
 
     m.def("Initialize", &amrInitialize, py::return_value_policy::reference);
-    m.def("Evolve"    , &amrFinalize);
-}
-/*
-PYBIND11_MODULE(example, m) {
-    py::class_<Animal>(m, "Animal")
-        .def("go", &Animal::go);
+    m.def("Finalize"  , &amrFinalize);
 
-    py::class_<Dog, Animal>(m, "Dog")
+    py::class_<AMReX>(m,"AMReX")
         .def(py::init<>());
 
-    m.def("call_go", &call_go);
-*/
+    py::class_<AmrCoreAdv>(m,"AmrCoreAdv")
+        .def(py::init<>())
+        .def("Evolve"  , &AmrCoreAdv::Evolve)
+        .def("InitData", &AmrCoreAdv::InitData);
+}
